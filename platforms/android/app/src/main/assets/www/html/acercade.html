@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Acerca de la App</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/responsive.css">
+	<script src="../js/funciones.js"></script>
+</head>
+
+<body class="siguientes">
+
+	<div class="container center">
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>APRENDO JUGANDO 2018</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>MONSTRU-VERSION 2.0</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>MONSTRU-DESARROLLADORA:<br> LUJAN ROJAS.<br> <br> COLABORANDO CON EL PROYECTO DALE!</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<img class="botonmenuN" src="../img/casa.png" alt="boton volver" onclick="playAudio(); ingresar('../index.html');">
+			</div>
+		</div>
+	</div>
+</body>
+<script src="../cordova.js"></script>
+
+<script type="text/javascript">
+	document.addEventListener("deviceready", onDeviceReady, false);
+	function onDeviceReady() {
+	}
+	// Funcion para reproducir audio
+	function playAudio() {
+		var src = getMediaURL("sonidos/selec.wav");
+
+		var myMedia = new Media(src,
+			// success callback
+			function () { console.log("playAudio():Audio Success"); },
+			// error callback
+			function (err) { console.log("playAudio():Audio Error: " + err); }
+		);
+		myMedia.play();
+	}
+	// Funcion para obtener la url del archivo (debes hacer esto para cualquier otro sonido a reproducir)
+	function getMediaURL(s) {
+		if (device.platform.toLowerCase() === "android") {
+			return "/android_asset/www/" + s;
+		}
+		return s;
+	}
+</script>
+<script src="../js/funciones.js"></script>
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Nivel 1 - Actividad 3</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/animacion.css">
+    <link rel="stylesheet" type="text/css" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/alertify.core.css" />
+    <link rel="stylesheet" href="../css/alertify.default.css" />
+</head>
+
+<body class="siguientes">
+    <!--ENCABEZADO <-->
+    <div class="tituloJuego">
+        <table class="tablas">
+            <td> <img src="../img/ayuda.png" id="imgsonido" class=" imgmonstruo"></td>
+            <td>
+                <h1 id="letra"> AGRUPAR</h1>
+            </td>
+            <td><img class="imgAyuda" src="../img/help.png" title="Arrastra las imagenes a la caja de la letra que le corresponde"></td>
+        </table>
+    </div>
+    <div>
+        <!-- imagenes del juego -->
+        <div>
+            <table class="tablas tablaj3">
+                <tr>
+                    <td>
+                        <div class="item">
+                            <img id="i4" class="imgJuegosMini slideDown" data-valor="iglesia.png" onclick="javascript: playAudio('sonidos/iglesia.wav'); enmarcar(event);"
+                                src="../img/niveles/iglesia.png" alt="imagen iglesia">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="item">
+                            <img id="e5" class="imgJuegosMini slideDown" data-valor="escoba.png" onclick="javascript: playAudio('sonidos/escoba.wav'); enmarcar(event);"
+                                src="../img/niveles/escoba.png" alt="imagen escoba">
+                        </div>
+                    </td>
+                      <td>
+                        <div class="item">
+                            <img id="i5" class="imgJuegosMini slideDown" data-valor="indio.png" onclick="javascript: playAudio('sonidos/indio.wav'); enmarcar(event);"
+                                src="../img/niveles/indio.png" alt="imagen indio">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="item">
+                            <img id="i6" class="imgJuegosMini slideDown" data-valor="isla.png" onclick="javascript: playAudio('sonidos/isla.wav'); enmarcar(event);"
+                                src="../img/niveles/isla.png" alt="imagen isla">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="item">
+                            <img id="e4" class="imgJuegosMini slideDown" data-valor="elefante.png" onclick="javascript: playAudio('sonidos/elefante.wav'); enmarcar(event);"
+                                src="../img/niveles/elefante.png" alt="imagen elefante">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="item">
+                            <img id="e6" class="imgJuegosMini slideDown" data-valor="escuela.png" onclick="javascript: playAudio('sonidos/escuela.wav'); enmarcar(event);"
+                                src="../img/niveles/escuela.png" alt="imagen escuela">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="item">
+                            <img id="i7" class="imgJuegosMini slideDown" data-valor="iman.png" onclick="javascript: playAudio('sonidos/iman.wav'); enmarcar(event);"
+                                src="../img/niveles/iman.png" alt="imagen iman">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="item">
+                            <img id="e7" class="imgJuegosMini slideDown" data-valor="estante.png" onclick="javascript: playAudio('sonidos/estante.wav'); enmarcar(event);"
+                                src="../img/niveles/estante.png" alt="imagen estante">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- trencitos -->
+            <div class="fila1">
+                <table id="e" class="tablas">
+                    <tr>
+                        <td>
+                            <h1>LETRA E</h1>
+                        </td>
+                        <td>
+                            <img class="box-image" onclick="javascript: cargar(event);" id="ce1" >                        </td>
+                        <td>
+                            <img class="box-image" onclick="javascript: cargar(event);" id="ce2" >                        </td>
+                        <td>
+                            <img class="box-image" onclick="javascript: cargar(event);" id="ce3" >                        </td>
+                        <td>
+                            <img class="box-image" onclick="javascript: cargar(event);" id="ce4" >                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="fila2">
+                <table id="i" class="tablas">
+                    <tr>
+                        <td>
+                            <h1>LETRA i</h1>
+                        </td>
+                        <td>
+                            <img class="box-image" onclick="javascript: cargar(event);" id="ci1" >                        </td>
+                        <td>
+                            <img class="box-image" onclick="javascript: cargar(event);" id="ci2" >                        </td>
+                        <td>
+                            <img class="box-image" onclick="javascript: cargar(event);" id="ci3" >
+                        </td>
+                        <td>
+                            <img class="box-image" onclick="javascript: cargar(event);" id="ci4" >
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!-- BOTONES -->
+            <div>
+                <table class="tablas tablamenu">
+                    <td> <img src="../img/refresh.png" class="botonmenuN" onclick="window.parent.location.reload();"></td>
+                    <td><img class="botonmenuN" src="../img/check.png" alt="boton comprobar" onclick="javascript: comprobarN1J8()">
+                    </td>
+                    <td><img src="../img/casa.png" class="botonmenuN" alt="boton salir" onclick=" playAudio('sonidos/selec.wav');confirmSalida()"></td>
+                </table>
+            </div>
+        </div>
+
+        <script src="../cordova.js"></script>
+        <script type="text/javascript" src="../js/alertify.js"></script>
+        <script src="../js/funciones.js"></script>
+        <script src="../js/funcionesn1j3.js"></script>
+        <script src="../js/jquery-3.1.1.js"></script>
+        <script type="text/javascript"></script>
+        <script>
+            var seleccionadas = [];
+
+            //Funciones al iniciar el juego
+            window.onload = function () {
+
+                setTimeout(function () {
+                    $('#presentation').css("display", "none");
+                    $('#game').css("display", "block");
+                }, 999);
+            };
+        </script>
+        <script type="text/javascript">
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+            }
+            // Funcion para reproducir audio
+            function playAudio(s) {
+                var src = getMediaURL(s);
+
+                var myMedia = new Media(src,
+                    // success callback
+                    function () { console.log("playAudio():Audio Success"); },
+                    // error callback
+                    function (err) { console.log("playAudio():Audio Error: " + err); }
+                );
+                myMedia.play();
+            }
+            // Funcion para obtener la url del archivo (debes hacer esto para cualquier otro sonido a reproducir)
+            function getMediaURL(s) {
+                if (device.platform.toLowerCase() === "android") {
+                    return "/android_asset/www/" + s;
+                }
+                return s;
+            }
+        </script>
+
+</body>
+
+</html>

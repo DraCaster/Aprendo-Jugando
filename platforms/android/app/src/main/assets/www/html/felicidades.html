@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Felicidades</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animacion.css">
+    <link rel="stylesheet" type="text/css" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/alertify.core.css" />
+    <link rel="stylesheet" href="../css/alertify.default.css" />
+    
+</head>
+
+<body class="siguientes">
+
+<div id="game">
+    <!-- ENCABEZADO -->
+    <div class="tituloJuego">
+        <h1 id="letra">&iexcl; FELICIDADES ! </h1>
+        <h1> TERMINASTE TODOS LOS JUEGOS</h1>
+        <h1>&iexcl; BUEN TRABAJO !</h1>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="felicidades">
+            <table class="tablas tablamenu">
+                <td><img src="../img/feliz.jpg" class="imgJuegosG"></td>
+           <td><img src="../img/casa.png" class="botonmenuN" alt="boton salir" onclick="playAudio(); confirmSalida();"> </td>
+            </table>
+        </div>
+    </div>
+    
+    <!--contenedor-->
+</div>
+<script src="../cordova.js"></script>
+
+<script type="text/javascript">
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+    }
+    // Funcion para reproducir audio
+    function playAudio() {
+        var src = getMediaURL("sonidos/selec.wav");
+
+        var myMedia = new Media(src,
+            // success callback
+            function () { console.log("playAudio():Audio Success"); },
+            // error callback
+            function (err) { console.log("playAudio():Audio Error: " + err); }
+        );
+        myMedia.play();
+    }
+    // Funcion para obtener la url del archivo (debes hacer esto para cualquier otro sonido a reproducir)
+    function getMediaURL(s) {
+        if (device.platform.toLowerCase() === "android") {
+            return "/android_asset/www/" + s;
+        }
+        return s;
+    }
+</script>
+    <script src="../js/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="../js/alertify.js"></script>
+    <script src="../js/funciones.js"></script>
+</body>
+</html>

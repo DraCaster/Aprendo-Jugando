@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Nivel 1 - Actividad 8</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animacion.css">
+    <link rel="stylesheet" type="text/css" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/alertify.core.css" />
+    <link rel="stylesheet" href="../css/alertify.default.css" />
+</head>
+
+<body class="siguientes">
+
+    <!-- PRESENTACION <-->
+    <div id="presentation">
+        <div class="center">
+            <h1>CARGANDO ...</h1>
+            <img class="slideDown imgmonstruo" src="../img/tini.png">
+        </div>
+    </div>
+
+    <!-- INICIA EL JUEGO-->
+    <div id="game" style="display:none; width:100%">
+        <!-- contenedor -->
+        <div class="tituloJuego">
+            <h1 id="letra"><img src="../img/ayuda.png" id="imgsonido" class=" imgmonstruo" onclick="window.location.href ='ayudaj8.html'">LETRA <b class="tam">&nbsp; M</b></h1>
+        </div>
+
+        <div>
+            <!-- Contenedor de las tablas y los dos bloques -->
+            <div>
+                <br>
+                <h1>ELIGE LA IMAGEN QUE EMPIECE CON M.</h1>
+                <br>
+                <table class="tablas tablaj1">
+                    <tr>
+                        <td>
+                            <div onclick="javascript: playAudio('sonidos/empanadas.wav'); enmarcar(event)">
+                                <img data-valor="empanadas" id="e" class="imgJuegosG slideDown" src="../img/niveles/empanadas.png">
+                            </div>
+                        </td>
+                        <td>
+                            <div onclick="javascript: playAudio('sonidos/anteojos.wav'); enmarcar(event)">
+                                <img data-valor="anteojos" id="a" class="imgJuegosG slideDown" src="../img/niveles/anteojos.png">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div onclick="javascript: playAudio('sonidos/martillo.wav'); enmarcar(event)">
+                                <img data-valor="martillo" id="m" class="imgJuegosG slideUp" src="../img/niveles/martillo.png">
+                            </div>
+                        </td>
+                        <td>
+                            <div onclick="javascript: playAudio('sonidos/oveja.wav'); enmarcar(event)">
+                                <img data-valor="oveja" id="o" class="imgJuegosG slideUp" src="../img/niveles/oveja.png">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+
+            <div>
+                <table class="tablas tablamenu">
+                    <td> <img src="../img/casa.png" class="botonmenuN" alt="boton salir" onclick="confirmSalida();">
+                    </td>
+                    <td><img src="../img/check.png" class="botonmenuN" alt="boton comprobar" onclick="javascript: comprobar();">
+                    </td>
+                </table>
+            </div>
+
+        </div>
+        <!-- end contenedor -->
+
+
+        <!--Sonido -->
+        <script src="../cordova.js"></script>
+        <script>
+            window.onload = function() {
+                show();
+                setTimeout(function() {
+                    $('#presentation').css("display", "none");
+                    $('#game').css("display", "block");
+                }, 999);
+
+            };
+        </script>
+        <script type="text/javascript">
+            document.addEventListener("deviceready", onDeviceReady, false);
+
+            function onDeviceReady() {}
+            // Funcion para reproducir audio
+            function playAudio(s) {
+                var src = getMediaURL(s);
+
+                var myMedia = new Media(src,
+                    // success callback
+                    function() {
+                        console.log("playAudio():Audio Success");
+                    },
+                    // error callback
+                    function(err) {
+                        console.log("playAudio():Audio Error: " + err);
+                    }
+                );
+                myMedia.play();
+            }
+            // Funcion para obtener la url del archivo (debes hacer esto para cualquier otro sonido a reproducir)
+            function getMediaURL(s) {
+                if (device.platform.toLowerCase() === "android") {
+                    return "/android_asset/www/" + s;
+                }
+                return s;
+            }
+        </script>
+        <script type="text/javascript" src="../js/alertify.js"></script>
+        <script type="text/javascript" src="../js/funciones.js"></script>
+        <script type="text/javascript" src="../js/funcionesn2j2.js"></script>
+        <script src="../js/jquery-3.1.1.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ayuda Juego 3</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/responsive.css">
+</head>
+<body class="ayudas">
+	<div class="tituloJuego">
+            <h1><img src="../img/ayuda.png"  class=" imgmonstruo"> Ayuda</h1>
+        </div>
+	<div class="contAyudas">
+	<h2>El objetivo del juego es arrastar las imagenes que comienzan con la misma letra que el vagon del trencito.</h2>
+    <h2>Hay dos vagones: el vagon de la letra E, y el vagon de la letra I. Cada imagen corresponde a uno de los vagones.</h2>
+	</div>
+	<br>
+	<div class="contAyudasB">
+	<p><img src="../img/casa.png" class="icon"> Boton casita: vuelve al menu anterior/inicio.</p> 
+	
+	<p><img src="../img/check.png" class="icon"> Boton tilde: para comprobar si la imagen seleccionada es correcta.</p>
+
+    <p><img src="../img/refresh.png" class="icon"> Boton recargar: vuelve a iniciar el juego desde cero.</p>
+</div>
+	<div>
+        <table class="tablas tablamenuAyuda ">
+                    <td> <img src="../img/casa.png" class="botonmenuN" alt="boton salir" onclick="javascript: playA('sonidos/selec.wav'); window.location.href = 'n1j3.html'">
+                    </td>
+        </table>
+    </div>
+    <script src="../cordova.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+        }
+        // Funcion para reproducir audio
+        function playA(s) {
+            var src = getMediaURL(s);
+
+            var nuevo = new Media(src,
+                // success callback
+                function () { console.log("playA():Audio Success"); },
+                // error callback
+                function (err) { console.log("playA():Audio Error: " + err); }
+            );
+            nuevo.play();
+        }
+        // Funcion para obtener la url del archivo (debes hacer esto para cualquier otro sonido a reproducir)
+        function getMediaURL(s) {
+            if (device.platform.toLowerCase() === "android") {
+                return "/android_asset/www/" + s;
+            }
+            return s;
+        }
+    </script>
+
+</body>
+</html>

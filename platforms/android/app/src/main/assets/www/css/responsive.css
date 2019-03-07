@@ -1,0 +1,151 @@
+                                                                                                                    @media screen and (max-height: 640px) and (max-width: 360px) {
+                                                                                                                        /* Juego 1 */
+                                                                                                                        .tablaj1 {
+                                                                                                                            width: 200px;
+                                                                                                                            height: 200px;
+                                                                                                                            text-align: center;
+                                                                                                                        }
+                                                                                                                        .imgJuegosG {
+                                                                                                                            width: 70px;
+                                                                                                                            height: 70px;
+                                                                                                                        }
+                                                                                                                        .normal {
+                                                                                                                            display: none;
+                                                                                                                        }
+                                                                                                                        .responsive {
+                                                                                                                            display: block;
+                                                                                                                            border-collapse: collapse;
+                                                                                                                        }
+                                                                                                                        .botonmenuN {
+                                                                                                                            height: 70px;
+                                                                                                                            width: 70px;
+                                                                                                                        }
+                                                                                                                        .imgmonstruo {
+                                                                                                                            width: 100px;
+                                                                                                                            height: 90px;
+                                                                                                                        }
+                                                                                                                        .cambiarBorde {
+                                                                                                                            width: 143px;
+                                                                                                                            height: 133px;
+                                                                                                                        }
+                                                                                                                        #letra {
+                                                                                                                            font-size: 35px;
+                                                                                                                        }
+                                                                                                                        .tam {
+                                                                                                                            font-size: 45px;
+                                                                                                                        }
+                                                                                                                        .tablamenuAyuda {
+                                                                                                                            margin-top: 20px;
+                                                                                                                            width: 70px;
+                                                                                                                            height: 70px;
+                                                                                                                            background: #42f44b;
+                                                                                                                        }
+                                                                                                                        .botonmenuAyuda {
+                                                                                                                            height: 50px;
+                                                                                                                            width: 50px;
+                                                                                                                        }
+                                                                                                                        .ImgsJuego5 {
+                                                                                                                            height: 50px;
+                                                                                                                            width: 50px;
+                                                                                                                        }
+                                                                                                                        /*Juego 3*/
+                                                                                                                        .tablaj3 {
+                                                                                                                            height: 200px;
+                                                                                                                            width: 310px;
+                                                                                                                        }
+                                                                                                                        .box-image {
+                                                                                                                            width: 70px;
+                                                                                                                            height: 70px;
+                                                                                                                        }
+                                                                                                                        .fila1,
+                                                                                                                        .fila2 {
+                                                                                                                            margin: 1px;
+                                                                                                                            width: 327px;
+                                                                                                                        }
+                                                                                                                        .imgJuegosMini {
+                                                                                                                            width: 70px;
+                                                                                                                            height: 70px;
+                                                                                                                        }
+                                                                                                                        /*titulo juego 3*/
+                                                                                                                        .tablatit {
+                                                                                                                            width: 90px;
+                                                                                                                            height: 100px;
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    /*end media*/
+                                                                                                                    
+                                                                                                                    @media screen and (max-height: 2160px) and (max-width: 1080px) {
+                                                                                                                        /* Juego 1 */
+                                                                                                                        .tablaj1 {
+                                                                                                                            width: 200px;
+                                                                                                                            height: 200px;
+                                                                                                                            text-align: center;
+                                                                                                                        }
+                                                                                                                        .imgJuegosG {
+                                                                                                                            width: 70px;
+                                                                                                                            height: 70px;
+                                                                                                                        }
+                                                                                                                        .normal {
+                                                                                                                            display: none;
+                                                                                                                        }
+                                                                                                                        .responsive {
+                                                                                                                            display: block;
+                                                                                                                            border-collapse: collapse;
+                                                                                                                        }
+                                                                                                                        .botonmenuN {
+                                                                                                                            height: 70px;
+                                                                                                                            width: 70px;
+                                                                                                                        }
+                                                                                                                        .imgmonstruo {
+                                                                                                                            width: 100px;
+                                                                                                                            height: 90px;
+                                                                                                                        }
+                                                                                                                        .cambiarBorde {
+                                                                                                                            width: 143px;
+                                                                                                                            height: 133px;
+                                                                                                                        }
+                                                                                                                        #letra {
+                                                                                                                            font-size: 35px;
+                                                                                                                        }
+                                                                                                                        .tam {
+                                                                                                                            font-size: 45px;
+                                                                                                                        }
+                                                                                                                        .tablamenuAyuda {
+                                                                                                                            margin-top: 20px;
+                                                                                                                            width: 70px;
+                                                                                                                            height: 70px;
+                                                                                                                            background: #42f44b;
+                                                                                                                        }
+                                                                                                                        .botonmenuAyuda {
+                                                                                                                            height: 50px;
+                                                                                                                            width: 50px;
+                                                                                                                        }
+                                                                                                                        .ImgsJuego5 {
+                                                                                                                            height: 50px;
+                                                                                                                            width: 50px;
+                                                                                                                        }
+                                                                                                                        /*Juego 3*/
+                                                                                                                        .tablaj3 {
+                                                                                                                            height: 200px;
+                                                                                                                            width: 310px;
+                                                                                                                        }
+                                                                                                                        .box-image {
+                                                                                                                            width: 70px;
+                                                                                                                            height: 70px;
+                                                                                                                        }
+                                                                                                                        .fila1,
+                                                                                                                        .fila2 {
+                                                                                                                            margin: 1px;
+                                                                                                                            width: 327px;
+                                                                                                                        }
+                                                                                                                        .imgJuegosMini {
+                                                                                                                            width: 70px;
+                                                                                                                            height: 70px;
+                                                                                                                        }
+                                                                                                                        /*titulo juego 3*/
+                                                                                                                        .tablatit {
+                                                                                                                            width: 90px;
+                                                                                                                            height: 100px;
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    /*end media II*/

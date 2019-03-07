@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <title>Nivel 1- Juego 7</title>
+
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animacion.css">
+  <link rel="stylesheet" type="text/css" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/alertify.core.css" />
+  <link rel="stylesheet" href="../css/alertify.default.css" />
+</head>
+
+<body class="siguientes">
+  <!-- PRESENTACION <-->
+  <div id="presentation">
+    <div class="center">
+      <h1>CARGANDO ACTIVIDAD ...</h1>
+      <img class="slideDown imgmonstruo" src="../img/tini.png">
+    </div>
+  </div>
+
+  <div id="game" style="display: none;">
+    <!-- ENCABEZADO -->
+
+    <!--PRIMER ACTIVIDAD DEL JUEGO 1 -->
+    <div class="contenedor " id="mostrar">
+      <div class="tituloJuego">
+        <h1 id="letra"><img src="../img/ayuda.png" id="imgsonido" class=" imgmonstruo">LETRA <b class="tam">&nbsp; I</b> 
+      </div>
+      <div class="izquierda">
+        <table class="tablanivel2">
+          <tr>
+            <td>
+              <img id="isla" class="imgNivel2" src="../img/niveles/isla.png"> </td>
+            <td>
+              <p id="feedback">
+                <span>ELEGISTE:</span>
+                <span id="select-result"></span>
+              </p>
+              <ol id="selectable">
+                <li data-valor="mar" id="m" class="ui-widget-content" onclick="javascript: playAudio('sonidos/mar.wav'); guardarValor()">MAR</li>
+                <li data-valor="isla" id="i" class="ui-widget-content" onclick="javascript: playAudio('sonidos/isla.wav'); guardarValor()">ISLA</li>
+                <li data-valor="arbol" id="p" class="ui-widget-content" onclick="javascript: playAudio('sonidos/arbol.wav'); guardarValor()">ARBOL</li>
+              </ol>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <br>
+      <div>
+        <table class="tablas tablamenu">
+          <td> <img src="../img/casa.png" class="botonmenuN" alt="boton salir" onclick="confirmSalida();"> </td>
+          <td><img src="../img/check.png" class="botonmenuN" alt="boton comprobar" onclick="javascript: comprobar();">
+          </td>
+        </table>
+      </div>
+    </div>
+
+    <!--SEGUNDA ACTIVIDAD DEL JUEGO 1 -->
+    <div class="contenedor ocultar">
+      <div class="tituloJuego">
+        <h1 id="letra"><img src="../img/ayuda.png" id="imgsonido" class=" imgmonstruo">LETRA A
+      </div>
+      <div class="izquierda">
+        <table class="tablanivel2">
+          <tr>
+            <td>
+              <img id="aro" class="imgNivel2" src="../img/niveles/aro.png"> </td>
+            <td>
+              <p id="feedback1">
+                <span>ELEGISTE: </span>
+                <span id="select-result1"></span>
+              </p>
+              <ol id="selectable1">
+                <li data-valor="anillo" id="e" class="ui-widget-content" onclick="javascript: playAudio('sonidos/anillo.wav'); guardarValor()">ANILLO</li>
+                <li data-valor="oreja" id="o" class="ui-widget-content" onclick="javascript: playAudio('sonidos/oreja.wav'); guardarValor()">OREJA</li>
+                <li data-valor="aro" id="a" class="ui-widget-content" onclick="javascript: playAudio('sonidos/aro.wav'); guardarValor()">ARO</li>
+              </ol>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table class="tablas tablamenu">
+          <td> <img src="../img/casa.png" class="botonmenuN" alt="boton salir" onclick="confirmSalida();"> </td>
+          <td><img src="../img/check.png" class="botonmenuN" alt="boton comprobar" onclick="javascript: comprobar();">
+          </td>
+        </table>
+      </div>
+    </div>
+
+    <script src="../cordova.js"></script>
+    <!-- Texto a voz -->
+    <script>
+
+
+      //Funciones al iniciar el juego
+      window.onload = function () {
+
+        setTimeout(function () {
+          $('#presentation').css("display", "none");
+          $('#game').css("display", "block");
+        }, 999);
+      };
+    </script>
+    <script type="text/javascript" src="../js/alertify.js"></script>
+    <script src="../js/funciones.js"></script>
+    <script src="../js/funcionesn2j1.js"></script>
+    <script src="../js/jquery-3.1.1.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $(function () {
+        $("#selectable").selectable({
+          stop: function () {
+            var result = $("#select-result").empty();
+            $(".ui-selected", this).each(function () {
+              var index = $("#selectable li").index(this);
+              result.append(" la opcion " + (index + 1));
+            });
+          }
+        });
+      });
+      $(function () {
+        $("#selectable1").selectable({
+          stop: function () {
+            var result = $("#select-result1").empty();
+            $(".ui-selected", this).each(function () {
+              var index = $("#selectable1 li").index(this);
+              result.append(" la opcion " + (index + 1));
+            });
+          }
+        });
+      });
+    </script>
+    <script type="text/javascript">
+      document.addEventListener("deviceready", onDeviceReady, false);
+      function onDeviceReady() {
+      }
+      // Funcion para reproducir audio
+      function playAudio(s) {
+        var src = getMediaURL(s);
+
+        var myMedia = new Media(src,
+          // success callback
+          function () { console.log("playAudio():Audio Success"); },
+          // error callback
+          function (err) { console.log("playAudio():Audio Error: " + err); }
+        );
+        myMedia.play();
+      }
+      // Funcion para obtener la url del archivo (debes hacer esto para cualquier otro sonido a reproducir)
+      function getMediaURL(s) {
+        if (device.platform.toLowerCase() === "android") {
+          return "/android_asset/www/" + s;
+        }
+        return s;
+      }
+    </script>
+</body>
+
+</html>

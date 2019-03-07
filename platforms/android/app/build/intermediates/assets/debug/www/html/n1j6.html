@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Nivel 1 - Juego 6</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/responsive.css">
+	<link rel="stylesheet" href="../css/animacion.css">
+	<link rel="stylesheet" href="../css/alertify.core.css" />
+	<link rel="stylesheet" href="../css/alertify.default.css" />
+</head>
+
+<body class="siguientes">
+	<!-- PRESENTACION <-->
+	<div id="presentation">
+		<div class="center">
+			<h1>CARGANDO ...</h1>
+			<img class="slideDown imgmonstruo" alt="imagen de carga" src="../img/tini.png">
+		</div>
+	</div>
+
+	<!-- ACA INICIA EL JUEGO -->
+	<div id="game" style="display:none;">
+		<div>
+			<h1>LETRA <b class="tam">&nbsp; A</b> - LETRA <b class="tam">&nbsp; O</b></h1>
+		</div>
+
+		<div class="tarjeta">
+				<table class="tablas tablasj1">
+					<tr>
+						<td>
+							<div class="item">
+								<img id="a1" class="imgJuegosMini slideDown" data-valor="ala.png" onclick="playAudio('sonidos/ala.wav'); enmarcar(event);"
+								 src="../img/niveles/ala.png" alt="imagen ala">
+							</div>
+						</td>
+						<td>
+							<div class="item">
+								<img id="o1" class="imgJuegosMini slideDown" data-valor="oreja.png" onclick="playAudio('sonidos/oreja.wav'); enmarcar(event);"
+								 src="../img/niveles/oreja.png" alt="imagen oreja">
+							</div>
+						</td>
+						<td>
+							<div class="item">
+								<img id="o2" class="imgJuegosMini slideDown" data-valor="ojo.png" onclick="playAudio('sonidos/ojo.wav'); enmarcar(event);"
+								 src="../img/niveles/ojo.png" alt="imagen ojo">
+							</div>
+						</td>
+						<td>
+							<div class="item">
+								<img id="o4" class="imgJuegosMini slideDown" data-valor="olla.png" onclick="javascript: playAudio('sonidos/olla.wav'); enmarcar(event);"
+								 src="../img/niveles/olla.png" alt="imagen olla">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="item">
+								<img id="o3" class="imgJuegosMini slideDown" data-valor="oveja.png" onclick="javascript: playAudio('sonidos/oveja.wav'); enmarcar(event);"
+								 src="../img/niveles/oveja.png" alt="imagen oveja">
+							</div>
+						</td>
+						<td>
+							<div class="item">
+								<img id="a2" class="imgJuegosMini slideDown" data-valor="anillo.png" onclick="javascript: playAudio('sonidos/anillo.wav'); enmarcar(event);"
+								 src="../img/niveles/anillo.png" alt="imagen anillo">
+							</div>
+						</td>
+							<td>
+							<div class="item">
+								<img id="a3" class="imgJuegosMini slideDown" data-valor="arania.png" onclick="javascript: playAudio('sonidos/arania.wav'); enmarcar(event);"
+								 src="../img/niveles/arania.png" alt="imagen arania">
+							</div>
+						</td>
+						<td>
+							<div class="item">
+								<img id="a4" class="imgJuegosMini slideDown" data-valor="aro.png" onclick="javascript: playAudio('sonidos/aro.wav'); enmarcar(event);"
+								 src="../img/niveles/aro.png" alt="imagen aro">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td> <img src="../img/refresh.png" class="botonmenuN" onclick="window.parent.location.reload();"></td>
+
+						<td> <img src="../img/casa.png" class="botonmenuN" alt="boton salir" onclick="confirmSalida();"> </td>
+						<td><img src="../img/check.png" class="botonmenuN" alt="boton comprobar" onclick="javascript: comprobarN1J8();">
+						</td>
+
+					</tr>
+				</table> 
+		<div class="fila1">
+				<h1>O</h1>
+				<table id="o" class="tablas ">
+					<tr>
+						<td>
+							<img class="box-image" onclick="javascript: cargar(event);" id="co1">
+						</td>
+						<td>
+							<img class="box-image" onclick="javascript: cargar(event);" id="co2">
+						</td>
+						<td>
+							<img class="box-image" onclick="javascript: cargar(event);" id="co3">
+						</td>
+						<td>
+							<img class="box-image" onclick="javascript: cargar(event);" id="co4">
+						</td>
+					</tr>
+				</table>
+			</div>	
+
+		<div>
+			<div class="fila1">
+				<h1>A</h1>
+				<table id="a" class="tablas">
+					<tr>
+						<td>
+							<img class="box-image" onclick="javascript: cargar(event);" id="ca1">
+						</td>
+						<td>
+							<img class="box-image" onclick="javascript: cargar(event);" id="ca2">
+						</td>
+					
+						<td>
+							<img class="box-image" onclick="javascript: cargar(event);" id="ca3">
+						</td>
+					
+						<td>
+							<img class="box-image" onclick="javascript: cargar(event);" id="ca4">
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			
+				<!-- contenedor -->
+		
+
+			<script src="../cordova.js"></script>
+			<!--contenedor-->
+			<script src="../js/funciones.js"></script>
+			<script src="../js/funcionesN1J8.js"></script>
+			<script type="text/javascript" src="../js/alertify.js"></script>
+			<script src="../js/jquery-3.1.1.js"></script>
+
+			<script>
+				var seleccionadas = [];
+
+				//Funciones al iniciar el juego
+				window.onload = function () {
+
+					setTimeout(function () {
+						$('#presentation').css("display", "none");
+						$('#game').css("display", "block");
+					}, 999);
+				};
+			</script>
+			<script type="text/javascript">
+				document.addEventListener("deviceready", onDeviceReady, false);
+				function onDeviceReady() {
+				}
+				// Funcion para reproducir audio
+				function playAudio(s) {
+					var src = getMediaURL(s);
+
+					var myMedia = new Media(src,
+						// success callback
+						function () { console.log("playAudio():Audio Success"); },
+						// error callback
+						function (err) { console.log("playAudio():Audio Error: " + err); }
+					);
+					myMedia.play();
+				}
+				// Funcion para obtener la url del archivo (debes hacer esto para cualquier otro sonido a reproducir)
+				function getMediaURL(s) {
+					if (device.platform.toLowerCase() === "android") {
+						return "/android_asset/www/" + s;
+					}
+					return s;
+				}
+			</script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Aprendo jugando</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+</head>
+
+<body class="principal">
+    <br>
+    <br>
+    <div class="container center">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div>
+            <div>
+                <!--<button id="playAudio">PLAY</button> -->
+                <img class="botonmenuC" src="img/boton1.png" alt="boton nivel 1" onclick="javascript: playAudio(); ingresar('html/nivel1.html');">
+            </div>
+        </div>
+        <div>
+            <div>
+                <img class="botonmenuC" src="img/boton2.png" alt="boton nivel 2" onclick="javascript: playAudio(); ingresar('html/nivel2.html');">
+            </div>
+        </div>
+        <div>
+            <div>
+                <img class="botonmenuC" src="img/boton3.png" alt="boton acercade" onclick="javascript: playAudio(); ingresar('html/acercade.html');">
+            </div>
+        </div>
+        <!-- <div class="row">
+			<div class="col-sm-12">
+				<img class="botonmenuC" src="img/boton4.png" alt="boton salir" id="playAudio" onclick="window.close();">
+			</div>
+		</div> -->
+    </div>
+    <script src="cordova.js"></script>
+
+    <script type="text/javascript">
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        function onDeviceReady() {}
+        // Funcion para reproducir audio
+        function playAudio() {
+            var src = getMediaURL("sonidos/selec.wav");
+
+            var myMedia = new Media(src,
+                // success callback
+                function() {
+                    console.log("playAudio():Audio Success");
+                },
+                // error callback
+                function(err) {
+                    console.log("playAudio():Audio Error: " + err);
+                }
+            );
+            myMedia.play();
+        }
+        // Funcion para obtener la url del archivo (debes hacer esto para cualquier otro sonido a reproducir)
+        function getMediaURL(s) {
+            if (device.platform.toLowerCase() === "android") {
+                return "/android_asset/www/" + s;
+            }
+            return s;
+        }
+    </script>
+    <script src="js/funciones.js"></script>
+    <script src="js/jquery-3.1.1.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Letras</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="../css/animacion.css">
+	<link rel="stylesheet" type="text/css" href="../css/responsive.css">
+</head>
+
+<body class="principal" id="playAudio">
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="center">
+		<h1>JUGAMOS JUNTOS?</h1>
+		<img class="botonmenuN" src="../img/1.png" alt="nivel1" onclick="javascript: playAudio(); ingresar('n1j1.html');">
+		&nbsp;
+		<img class="botonmenuN" src="../img/2.png" alt="nivel2" onclick="javascript: playAudio(); ingresar('n1j2.html');">
+		&nbsp;
+		<img class="botonmenuN" src="../img/3.png" alt="nivel3" onclick="javascript: playAudio(); ingresar('n1j3.html');">
+		&nbsp;
+		<img class="botonmenuN" src="../img/4.png" alt="nivel4" onclick="javascript: playAudio(); ingresar('n1j4.html');">
+		&nbsp;
+		<br>
+		<img class="botonmenuN" src="../img/5.png" alt="nivel5" onclick="javascript: playAudio(); ingresar('n1j5.html');">
+		&nbsp;
+		<img class="botonmenuN" src="../img/6.png" alt="nivel6" onclick="javascript: playAudio(); ingresar('n1j6.html');">
+		&nbsp;
+		<img class="botonmenuN" src="../img/7.png" alt="nivel7" onclick="javascript: playAudio(); ingresar('n1J7.html');">
+		&nbsp;
+		<img class="botonmenuN" src="../img/8.png" alt="nivel8" onclick="javascript: playAudio(); ingresar('n1J8.html');">
+		&nbsp;
+		<br /> <br />
+		<img class="botonmenuN" src="../img/casa.png" alt="boton volver" onclick="javascript: playAudio(); ingresar('../index.html');">
+	</div>
+	<script src="../cordova.js"></script>
+	<script type="text/javascript">
+		document.addEventListener("deviceready", onDeviceReady, false);
+		function onDeviceReady() {
+		}
+		// Funcion para reproducir audio
+		function playAudio() {
+			var src = getMediaURL("sonidos/selec.wav");
+
+			var myMedia = new Media(src,
+				// success callback
+				function () { console.log("playAudio():Audio Success"); },
+				// error callback
+				function (err) { console.log("playAudio():Audio Error: " + err); }
+			);
+			myMedia.play();
+		}
+		// Funcion para obtener la url del archivo (debes hacer esto para cualquier otro sonido a reproducir)
+		function getMediaURL(s) {
+			if (device.platform.toLowerCase() === "android") {
+				return "/android_asset/www/" + s;
+			}
+			return s;
+		}
+	</script>
+	<script src="../js/funciones.js"></script>
+</body>
+
+</html>
