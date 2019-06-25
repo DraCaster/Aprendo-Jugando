@@ -1,7 +1,5 @@
 var pintado = false; // En el juego , si se selecciona una imagen esta var se pone en true
 var letraSelec = null;
-var cantAct = 0;
-var letraActual = "u";
 
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
@@ -48,13 +46,13 @@ function enmarcar(event) {
 
 
 
-function confirmar() {
+function confirmar(s) {
     playA('sonidos/ganaste.wav');
     alertify.confirm("<img src='../img/feliz.jpg'> <p>Buen trabajo! <b>Acertaste!</b> <br> Seguimos jugando?", function (e) {
         if (e) {
             alertify.success("ELEGISTE '" + alertify.labels.ok + "'");
             setTimeout(function () {
-                window.location.href = '../html/n1j2.html'; //Pasa al siguiente juego
+                window.location.href = '../html/'+s+'.html'; //Pasa al siguiente juego
             }, 1300);
         } else {
             alertify.error("ELEGISTE '" + alertify.labels.cancel + "'");
@@ -73,56 +71,12 @@ function alerta() {
 }
 
 /* Verifica que la imagen seleccionada sea la correcta */
-function comprobar() {
+function comprobar(s) {
     pintado = false;
     $('.cambiarBorde').removeClass("cambiarBorde"); //la imagen seleccionada se despinta
     if (letraSelec == letraActual) {
-        confirmar();
+        confirmar(s);
     } else {
         alerta();
     }
-}
-
-function ayuda() {
-    jQuery.fn.tooltip = function () {
-        xOffset = 10;
-        yOffset = 0;
-        this.each(function () {
-            $(this).hover(function (e) {
-                // Cogemos el valor del tag "title"
-                this.t = this.title;
-                // Ponemos el tag "title" del html vacio para que el navegador no 
-                // muestre su tooltip estandard
-                this.title = "";
-                // Añadimos una p con el id="tooltip" para mostrar el texto
-                $("body").append("<p id='tooltip'>" + this.t + "</p>");
-                // Lo posicionamos cerca de la posición del ratón
-                $("#tooltip")
-                    .css("top", (e.pageY + yOffset) + "px")
-                    .css("left", (e.pageX + xOffset) + "px")
-                    .fadeIn();
-            },
-                function () {
-                    // Funcion que se ejecuta cuando el raton deja de pasar por encima
-
-                    // Volvemos a poner el titulo en el codigo html
-                    this.title = this.t;
-                    // eliminamos el id tooltip que hemos añadido al pasar por encima
-                    $("#tooltip").remove();
-                });
-
-            // Funcion que se ejecuta cuando nos movemos por encima
-            // Posiciona el tooltip justo al lado del mouse
-            $(this).mousemove(function (e) {
-                $("#tooltip")
-                    .css("top", (e.pageY + yOffset) + "px")
-                    .css("left", (e.pageX + xOffset) + "px");
-            });
-        });
-        return this;
-    };
-
-    $(document).ready(function () {
-        $(".globoAyuda").tooltip();
-    });
 }

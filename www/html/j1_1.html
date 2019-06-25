@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Actividad extra 1 </title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animacion.css">
+    <link rel="stylesheet" type="text/css" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/alertify.core.css" />
+    <link rel="stylesheet" href="../css/alertify.default.css" />
+</head>
+<body class="siguientes">
+	<h1>&iquest;COMO SE ESCRIBE?</h1>
+	 <div class="center">
+            <img src="../img/ayuda.png" class="imgmedia" onclick="javascript: ingresar('ayudaj1.html');">
+      
+		<img class="imgmedia slideDown" data-valor="uno" src="../img/niveles/uno.png" alt="imagen numero uno" onclick="javascript: reproducirSonido('uno.wav');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img class="imgAyuda globoAyuda" src="../img/help.png" onclick="javascript: reproducirSonido('juego1extra.wav');">
+	</div>
+	<table class="tablas tablaExtra">
+<tr>
+	<td>
+		<img id="o" onclick="enmarcar(event);" src="../img/palabras/oso.png" class="imgpalabras"> 
+	</td>
+</tr>
+<tr>
+	<td>
+		<img id="u" onclick="enmarcar(event);" src="../img/palabras/uno.png" class="imgpalabras">
+	</td> 
+</tr>
+<tr>
+	<td>
+		<img id="o1" onclick="enmarcar(event);" src="../img/palabras/ola.png" class="imgpalabras">
+	</td>
+</tr>
+</table>	
+<br>	
+ <div>
+    <table class="tablas tablamenu">
+        <td> <img src="../img/casa.png" class="botonmenuN" alt="boton salir" onclick="confirmSalida();"> </td>
+        <td><img src="../img/check.png" class="botonmenuN" alt="boton comprobar" onclick="javascript: comprobar('n1j2');"> </td>
+    </table>
+ </div>
+ <script src="../js/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="../js/alertify.js"></script>
+    <script src="../js/funciones.js"></script>
+    <script src="../js/funcionesn1j1.js"></script>
+</body>
+</html>

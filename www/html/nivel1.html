@@ -3,12 +3,15 @@
 
 <head>
 	<title>Letras</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<link rel="stylesheet" href="../css/animacion.css">
-	<link rel="stylesheet" type="text/css" href="../css/responsive.css">
+ <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animacion.css">
+    <link rel="stylesheet" type="text/css" href="../css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="../css/animacion.css">
+     <link rel="stylesheet" href="../css/alertify.core.css" />
+    <link rel="stylesheet" href="../css/alertify.default.css" />
 </head>
 
-<body class="principal" id="playAudio">
+<body class="principal" onload="ayuda();">
 	<br>
 	<br>
 	<br>
@@ -19,26 +22,31 @@
 	<br>
 	<br>
 	<div class="center">
-		<h1>JUGAMOS JUNTOS?</h1>
-		<img class="botonmenuN" src="../img/1.png" alt="nivel1" onclick="javascript: playAudio(); ingresar('n1j1.html');">
+		<h1 class="slideRight">&iquest;JUGAMOS JUNTOS?</h1>
+		<br>
+		<br>
+		<img class="botonmenuN fadeIn" src="../img/1.png" alt="nivel1" onclick="javascript: playAudio(); ingresar('n1j1.html');">
 		&nbsp;
-		<img class="botonmenuN" src="../img/2.png" alt="nivel2" onclick="javascript: playAudio(); ingresar('n1j2.html');">
+		<img class="botonmenuN fadeIn" src="../img/2.png" alt="nivel2" onclick="javascript: playAudio(); ingresar('n1j2.html');">
 		&nbsp;
-		<img class="botonmenuN" src="../img/3.png" alt="nivel3" onclick="javascript: playAudio(); ingresar('n1j3.html');">
+		<img class="botonmenuN fadeIn" src="../img/3.png" alt="nivel3" onclick="javascript: playAudio(); ingresar('n1j3.html');">
 		&nbsp;
-		<img class="botonmenuN" src="../img/4.png" alt="nivel4" onclick="javascript: playAudio(); ingresar('n1j4.html');">
+		<img class="botonmenuN fadeIn" src="../img/4.png" alt="nivel4" onclick="javascript: playAudio(); ingresar('n1j4.html');">
 		&nbsp;
 		<br>
-		<img class="botonmenuN" src="../img/5.png" alt="nivel5" onclick="javascript: playAudio(); ingresar('n1j5.html');">
+		<img class="botonmenuN fadeIn" src="../img/5.png" alt="nivel5" onclick="javascript: playAudio(); ingresar('n1j5.html');">
 		&nbsp;
-		<img class="botonmenuN" src="../img/6.png" alt="nivel6" onclick="javascript: playAudio(); ingresar('n1j6.html');">
+		<img class="botonmenuN fadeIn" src="../img/6.png" alt="nivel6" onclick="javascript: playAudio(); ingresar('n1j6.html');">
 		&nbsp;
-		<img class="botonmenuN" src="../img/7.png" alt="nivel7" onclick="javascript: playAudio(); ingresar('n1J7.html');">
+		<img class="botonmenuN fadeIn" src="../img/7.png" alt="nivel7" onclick="javascript: playAudio(); ingresar('n1J7.html');">
 		&nbsp;
-		<img class="botonmenuN" src="../img/8.png" alt="nivel8" onclick="javascript: playAudio(); ingresar('n1J8.html');">
+		<img class="botonmenuN fadeIn" src="../img/8.png" alt="nivel8" onclick="javascript: playAudio(); ingresar('n1J8.html');">
 		&nbsp;
+		 <img class="botonmenuN fadeIn" src="../img/9.png" alt="nivel8" onclick="javascript: playAudio(); ingresar('n1j9.html');"> &nbsp;
+          <img class="botonmenuN fadeIn" src="../img/10.png" alt="nivel8" onclick="javascript: playAudio(); ingresar('n1j10.html');"> &nbsp;
+        <br/> <br/>
 		<br /> <br />
-		<img class="botonmenuN" src="../img/casa.png" alt="boton volver" onclick="javascript: playAudio(); ingresar('../index.html');">
+		<img class="botonmenuN fadeIn" src="../img/casa.png" alt="boton volver" onclick="javascript: playAudio(); ingresar('../index.html');">
 	</div>
 	<script src="../cordova.js"></script>
 	<script type="text/javascript">
@@ -66,6 +74,7 @@
 		}
 	</script>
 	<script src="../js/funciones.js"></script>
+    <script src="../js/jquery-3.1.1.js"></script>
 </body>
 
 </html>

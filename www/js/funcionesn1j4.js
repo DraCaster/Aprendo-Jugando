@@ -2,8 +2,6 @@
 var cantImg = 0;
 var cantImgIncorrectas = 0;
 
-/*Nivel 1 juego 4*/
-
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 }
@@ -27,25 +25,41 @@ function getMediaURL(s) {
     return s;
 }
 
+/*Nivel 1 juego 4*/
+
 function enmarcar(event) {
     imgSelec = event.target;
     if (imgSelec.dataset.marca == "no") { //si no se le hizo click
         imgSelec.dataset.marca = "si";
-        document.getElementById(imgSelec.id).src = '../img/niveles/' + imgSelec.id;
-        if (imgSelec.dataset.valor == "e") { //si le hice click a una imagen que empieza con e
+        if (imgSelec.id == "a" | imgSelec.id == "a1") { //si le hice click a una imagen que empieza con e
             cantImg++; //sumo la cantidad de imagenes con la e
-        }
-        else {
+        } else {
             cantImgIncorrectas++;
         }
-    }
-    else { //si se le hizo click anteriormente
+    } else { //si se le hizo click anteriormente
         imgSelec.dataset.marca = "no"; //se desmarca
-        document.getElementById(imgSelec.id).src = '../img/lupa.png';
-        if (imgSelec.id == "e") {
+        if (imgSelec.id == "a" | imgSelec.id == "a1") {
             cantImg--; //se resta porque se deselecciono
+        } else {
+            cantImgIncorrectas--;
         }
-        else {
+    }
+}
+
+function enmarcarExtra(event){
+    imgSelec = event.target;
+    if (imgSelec.dataset.marca == "no") { //si no se le hizo click
+        imgSelec.dataset.marca = "si";
+        if (imgSelec.id == "o" | imgSelec.id == "o1") { //si le hice click a una imagen que empieza con e
+            cantImg++; //sumo la cantidad de imagenes con la e
+        } else {
+            cantImgIncorrectas++;
+        }
+    } else { //si se le hizo click anteriormente
+        imgSelec.dataset.marca = "no"; //se desmarca
+        if (imgSelec.id == "o" | imgSelec.id == "o1") {
+            cantImg--; //se resta porque se deselecciono
+        } else {
             cantImgIncorrectas--;
         }
     }
@@ -54,52 +68,65 @@ function enmarcar(event) {
 /*Cartelito*/
 
 function confirmar() {
-    playA('sonidos/ganaste.wav');
-    alertify.confirm("<img src='../img/feliz.jpg'> <p>Buen trabajo! <b>Acertaste!</b> <br> Seguimos jugando?", function (e) {
+    playA('../sonidos/ganaste.wav');
+    alertify.confirm("<img src='../img/feliz.jpg'> <h1><b>&iexcl; EXCELENTE ! <br>&iexcl; SIGAMOS JUGANDO ! </b></h1>", function(e) {
         if (e) {
-            playA('sonidos/selec.wav');
             alertify.success("ELEGISTE '" + alertify.labels.ok + "'");
-            setTimeout(function () {
+            setTimeout(function() {
                 window.location.href = '../html/n1j5.html'; //Pasa al siguiente juego
             }, 1300);
         } else {
             alertify.error("ELEGISTE '" + alertify.labels.cancel + "'");
-
             confirmSalida();
         }
     });
     return false
 }
 
+function devolverIMG() {
+    var tabla = $('.tablaj1').children('tbody').children('tr').find('img');
+    for (var i = 0; i < tabla.length; i++) {
+        i++;
+        if (tabla[i].dataset.marca == 'si' & tabla[i].dataset.valor != 'a') {
+            //aca tengo que darla vuelta
+        }
+    }
+}
+
 function alerta() {
-    playA('sonidos/error.wav');
-    alertify.alert("<img src='../img/triste.jpg'><b>Ups! Te equivocaste</b> Segui intentando!", function () {
+    playA('../sonidos/error.wav');
+    alertify.alert("<img src='../img/triste.jpg'> <h1><b> &iexcl; TE EQUIVOCASTE ! <br> &iexcl; INTENTALO DE NUEVO ! </b></h1>", function() {
         //aqui introducimos lo que haremos tras cerrar la alerta.
     });
 }
 
 function faltan() {
-    playA('sonidos/error.wav');
-    alertify.alert("<img src='../img/triste.jpg'><b>Ups! Faltan imagenes</b>", function () {
+    playA('../sonidos/error.wav');
+    alertify.alert("<img src='../img/triste.jpg'> <h1><b> &iexcl; FALTAN IMAGENES ! <br> &iexcl; INTENTALO DE NUEVO ! </b></h1>", function() {
         //aqui introducimos lo que haremos tras cerrar la alerta.
     });
 }
 
 function ceroimg() {
-    playA('sonidos/error.wav');
-    alertify.alert("<img src='../img/triste.jpg'><b>No elegiste ninguna</b>", function () {
+    playA('../sonidos/error.wav');
+    alertify.alert("<img src='../img/triste.jpg'> <h1><b> &iexcl; NO ELEGISTE NINGUNA IMAGEN ! </b></h1>", function() {
         //aqui introducimos lo que haremos tras cerrar la alerta.
     });
 }
 
+
 function comprobar() {
+    //las imagenes que no van deberian taparse
     if (cantImg == 2 & cantImgIncorrectas == 0) {
         confirmar();
     } else if (cantImg == 0 & cantImgIncorrectas == 0) {
+        devolverIMG();
         ceroimg();
     } else if (cantImg != 0 & cantImg < 2 & cantImgIncorrectas == 0) {
+        devolverIMG();
         faltan();
     } else {
+        devolverIMG();
         alerta();
     }
 }

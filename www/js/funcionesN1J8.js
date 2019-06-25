@@ -1,95 +1,58 @@
 var pintado = false;
-var elegida = '';
-var borrar = '';
+var selec;
+var tabla = ['null','null','null','null'];
 
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
-}
-// Funcion para reproducir audio
-function playA(s) {
-    var src = getMediaURL(s);
 
-    var myMedia = new Media(src,
-        // success callback
-        function () { console.log("playA():Audio Success"); },
-        // error callback
-        function (err) { console.log("playA():Audio Error: " + err); }
-    );
-    myMedia.play();
-}
-// Funcion para obtener la url del archivo (debes hacer esto para cualquier otro sonido a reproducir)
-function getMediaURL(s) {
-    if (device.platform.toLowerCase() === "android") {
-        return "/android_asset/www/" + s;
-    }
-    return s;
-}
-
-function cargar(event){
-     var sel = event.target;
-    document.getElementById(sel.id).src = "../img/niveles/" + elegida;
-    var imagen = document.getElementById(borrar);   
-    padre = imagen.parentNode;
-    padre.removeChild(imagen);
-}
 
 function checkTable(letra) {
     var tabla = $('#' + letra);
     var items = tabla.children('tbody').children('tr').find('img');
-    console.log(items.length);
-    res = {
-        valor: true,
-        msj: '¡ Bien ! Pasas al siguiente nivel'
-    };
-    if (items.length == 4) {
-        items.each(function () {
-            if ($(this).attr('id')[0] != letra) {
-                res.valor = false;
-                res.msj = 'Ups, Algo esta tiene que ir del otro lado.';
-            }
-        });
-    } else {
-    res.valor = false;
-        res.msj = 'Completa la Fila'
+    var cont = 0;
+    var padre;
+    var hijo;
+    
+    for (var i = 0; i < items.length; i++) {
+        if (items[i].dataset.letra != letra){
+            hijo = document.createElement("div");
+            hijo.className+="item";
+            hijo.appendChild(items[i]);
+            padre = document.getElementById('pos-'+items[i].dataset.pos);
+            padre.appendChild(hijo);
+        }
+        if (items[i].dataset.letra == letra){
+            cont++;
+        }
     }
-    return res;
-}
 
+    //Le devuelvo la propiedad arrastrable a cada imagen
+    $('.item').draggable({
+                helper: 'clone'
+                
+            });
 
-function comprobarN1J8() {
-    console.log(checkTable('a').valor);
-    console.log(checkTable('o').valor);
-    if (checkTable('a').valor & checkTable('o').valor) {
-        playA('sonidos/ganaste.wav');
-        confirmar();
-    } else {
-        alerta();
-    }
-}
+            $('.box-image').droppable({
+                accept: '.item',
+                hoverClass: 'hovering',
+                drop: function(ev, ui) {
+                    ui.draggable.detach();
+                    $(this).append(ui.draggable);
 
-function enmarcar(event) {
-    selec = event.target;
-    elegida = selec.dataset.valor;
-    borrar = selec.id;
-    if (pintado == false) {
-        selec.className += " cambiarBorde2";
-        pintado = true;
-    } else {
-        $('.cambiarBorde2').removeClass("cambiarBorde2");
-        selec.className += " cambiarBorde2";
-    }
+                }
+            });
+
+   return (cont==4);
 }
 
 /*Cartelito*/
 
-function confirmar() {
-    playA('sonidos/ganaste.wav');
-    alertify.confirm("<img src='../img/feliz.jpg'> <p>Buen trabajo! <b>Acertaste!</b> <br> Seguimos jugando?", function (e) {
+function confirmar(p) {
+    playA('../sonidos/ganaste.wav');
+    alertify.confirm("<img src='../img/feliz.jpg'> <h1><b>&iexcl; EXCELENTE ! <br>&iexcl; SIGAMOS JUGANDO ! </b></h1>", function(e) {
         if (e) {
             alertify.success("ELEGISTE '" + alertify.labels.ok + "'");
-            setTimeout(function () {
-                window.location.href = '../html/n1J7.html'; //Pasa al siguiente juego
-            }, 1300);
+            setTimeout(function() {
+                window.location.href = '../html/'+p; //Pasa al siguiente juego
+            }, 1300);+
         } else {
             alertify.error("ELEGISTE '" + alertify.labels.cancel + "'");
             confirmSalida();
@@ -99,20 +62,26 @@ function confirmar() {
 }
 
 function alerta() {
-    //un alert
-    playA('sonidos/error.wav');
-    alertify.alert("<img src='../img/triste.jpg'><b>Ups! Te equivocaste</b> Segui intentando!", function () {
+    playA('../sonidos/error.wav');
+    alertify.alert("<img src='../img/triste.jpg'> <h1><b> &iexcl; TE EQUIVOCASTE! <br> &iexcl; INTENTALO DE NUEVO ! </b></h1>", function() {
         //aqui introducimos lo que haremos tras cerrar la alerta.
     });
 }
 
-/* Verifica que la imagen seleccionada sea la correcta */
-function comprobar() {
-    pintado = false;
-    $('.cambiarBorde').removeClass("cambiarBorde"); //la imagen seleccionada se despinta
-    if (letraSelec == letraActual) {
-        confirmar();
+function enmarcar(event) {
+    selec = event.target;
+    if (pintado == false) {
+        selec.className += " cambiarBorde";
+        pintado = true;
+    } else {
+        $('.cambiarBorde').removeClass("cambiarBorde");
+        selec.className += " cambiarBorde";
+    }
+}
 
+function comprobar(tabla1,tabla2,paginaSig) {
+    if (checkTable(tabla1) & checkTable(tabla2)) {
+        confirmar(paginaSig);
     } else {
         alerta();
     }

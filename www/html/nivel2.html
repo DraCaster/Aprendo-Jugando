@@ -4,11 +4,13 @@
 <head>
 	<title>LETRAS</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<link rel="stylesheet" href="../css/animacion.css">
-	<link rel="stylesheet" type="text/css" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animacion.css">
+    <link rel="stylesheet" type="text/css" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/alertify.core.css" />
+    <link rel="stylesheet" href="../css/alertify.default.css" />
 </head>
 
-<body class="principal">
+<body class="principal" onload="ayuda();">
 	<br>
 	<br>
 	<br>
@@ -19,18 +21,17 @@
 	<br>
 	<br>
 	<div class="center">
-		<h1>JUGAMOS JUNTOS?</h1>
-		<img class="botonmenuN" src="../img/a.png" alt="nivel 1" onclick="javascript: playAudio(); ingresar('n1j5.html');">
-		&nbsp;
-		<img class="botonmenuN" src="../img/e.png" alt="nivel 2" onclick="javascript: playAudio(); ingresar('n1j4.html');">
-		&nbsp;
-		<img class="botonmenuN" src="../img/i.png" alt="nivel 3" onclick="javascript: playAudio(); ingresar('n1J7.html');">
-		&nbsp;
-		<img class="botonmenuN" src="../img/o.png" alt="nivel 4" onclick="javascript: playAudio(); ingresar('n1j2.html');">
-		&nbsp;
-		<img class="botonmenuN" src="../img/u.png" alt="nivel 5" onclick="javascript: playAudio(); ingresar('n1j1.html');">
+		<h1 class="slideLeft">&iquest;JUGAMOS JUNTOS?</h1>
+		<br>
+		<img class="botonmenuC fadeIn" src="../img/a.png" onclick="javascript: playAudio(); ingresar('n1j9.html');">
+		<img class="botonmenuC fadeIn" src="../img/b.png" onclick="javascript: playAudio(); ingresar('n1j6.html');">
+		<img class="botonmenuC fadeIn" src="../img/c.png" onclick="javascript: playAudio(); ingresar('n1J3.html');">
+		<br>
+		<img class="botonmenuC fadeIn" src="../img/d.png" onclick="javascript: playAudio(); ingresar('n1j2.html');">
+		<img class="botonmenuC fadeIn" src="../img/e.png" onclick="javascript: playAudio(); ingresar('n1j4.html');">
+		<img class="botonmenuC fadeIn" src="../img/f.png" onclick="javascript: playAudio(); ingresar('n1j1.html');">
 		<br><br>
-		<img class="botonmenuN" src="../img/casa.png" alt="boton volver" onclick=" playAudio(); ingresar('../index.html');">
+		<img class="botonmenuN fadeIn" src="../img/casa.png" alt="boton volver" onclick=" playAudio(); ingresar('../index.html');">
 	</div>
 	<script src="../cordova.js"></script>
 	<script type="text/javascript">
@@ -57,7 +58,7 @@
 			return s;
 		}
 	</script>
-
+	<script src="../js/alertify.js"></script>
 	<script src="../js/funciones.js"></script>
 </body>
 

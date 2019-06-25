@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Nivel 1 - Juego 10</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animacion.css">
+    <link rel="stylesheet" type="text/css" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/alertify.core.css" />
+    <link rel="stylesheet" href="../css/alertify.default.css" />
+</head>
+
+<body class="siguientes">
+    <!-- PRESENTACION <-->
+    <div id="presentation">
+        <div class="center">
+            <h1 class="cubos">CARGANDO</h1>
+            <h1 class="cubos">ACTIVIDAD ...</h1>
+            <img class="slideDown imgmonstruo" src="../img/tini.png">
+        </div>
+    </div>
+
+    <div id="game" style="display: none;">
+        <!-- ENCABEZADO -->
+        <div class="tituloJuego">
+            <h1 id="letra" class="cubos"><img src="../img/ayuda.png" id="imgsonido1-4" class=" imgmonstruo">LOS NAIPES</h1>
+        </div>
+        <br>
+        <div>
+            <!-- Principal contenedor -->
+            <div>
+                <h1>PARA COMENZAR, ELIGE CON QUE LETRA JUGAR.</h1>
+                <br>
+
+            <div>
+                <table class="tablas">
+                    <tr>
+                    <td><img src="../img/palabras/l.png" class="botonExtra" onclick="ingresar('j10_1.html');"></td>
+                    <td><img src="../img/palabras/s.png" class="botonExtra" onclick="ingresar('j10_2.html');"></td>
+                    <td><img src="../img/palabras/n.png" class="botonExtra" onclick="ingresar('j10_3.html');"></td>
+                    <td><img src="../img/palabras/j.png" class="botonExtra" onclick="ingresar('j10_4.html');"></td>
+                   </tr>
+                </table>
+            </div>
+            <br>
+            <br>
+            <div>
+                <table class="tablas tablamenu">
+                    <tr>
+                    <td> <img src="../img/casa.png" class="botonmenuN" alt="boton salir" onclick="confirmSalida();"> </td>
+                   </tr>
+                </table>
+            </div>
+        </div>
+        <!-- end contenedor principal -->
+        <script type="text/javascript" src="../js/alertify.js"></script>
+        <script src="../js/funciones.js"></script>
+        <script src="../js/jquery-3.1.1.js"></script>
+        <script>
+            //Funciones al iniciar el juego
+            window.onload = function() {
+
+                setTimeout(function() {
+                    $('#presentation').css("display", "none");
+                    $('#game').css("display", "block");
+                }, 999);
+            };
+        </script>
+</body>
+
+</html>

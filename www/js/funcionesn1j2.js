@@ -1,6 +1,6 @@
 var pintado = false;
-var letraActual = "o";
-var letraSelec = null;
+var selec;
+var tabla = ['null','null','null','null'];
 
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
@@ -25,29 +25,54 @@ function getMediaURL(s) {
     return s;
 }
 
-function enmarcar(event) {
-    selec = event.target;
-    console.log(selec);
-    if (pintado == false) {
-        selec.className += " cambiarBorde2";
-        pintado = true;
-        letraSelec = selec.id;
-    } else {
-        $('.cambiarBorde2').removeClass("cambiarBorde2");
-        selec.className += " cambiarBorde2";
-        letraSelec = selec.id;
+/*FUNCIONES DE LA ACTIVIDAD PRINCIPAL */
+function checkTable(letra) {
+    var tabla = $('#' + letra);
+    var items = tabla.children('tbody').children('tr').find('img');
+    var cont = 0;
+    var padre;
+    var hijo;
+    for (var i = 0; i < items.length; i++) {
+        if (items[i].dataset.letra != letra){
+            hijo = document.createElement("div");
+            hijo.className+="item";
+            hijo.appendChild(items[i]);
+            padre = document.getElementById('pos-'+items[i].dataset.pos);
+            padre.appendChild(hijo);
+        }
+        if (items[i].dataset.letra == letra){
+            cont++;
+        }
     }
+
+    //Le devuelvo la propiedad arrastrable a cada imagen
+    $('.item').draggable({
+                helper: 'clone'
+                
+            });
+
+            $('.box-image').droppable({
+                accept: '.item',
+                hoverClass: 'hovering',
+                drop: function(ev, ui) {
+                    ui.draggable.detach();
+                    $(this).append(ui.draggable);
+
+                }
+            });
+
+   return (cont==4);
 }
 
 /*Cartelito*/
 
-function confirmar() {
-    playA('sonidos/ganaste.wav');
-    alertify.confirm("<img src='../img/feliz.jpg'> <p>Buen trabajo! <b>Acertaste!</b> <br> Seguimos jugando?", function (e) {
+function confirmar(s) {
+    playA('../sonidos/ganaste.wav');
+    alertify.confirm("<img src='../img/feliz.jpg'> <h1><b>&iexcl; EXCELENTE ! <br>&iexcl; SIGAMOS JUGANDO ! </b></h1>", function(e) {
         if (e) {
             alertify.success("ELEGISTE '" + alertify.labels.ok + "'");
-            setTimeout(function () {
-                window.location.href = '../html/n1j3.html'; //Pasa al siguiente juego
+            setTimeout(function() {
+                window.location.href = '../html/'+s; //Pasa al siguiente juego
             }, 1300);
         } else {
             alertify.error("ELEGISTE '" + alertify.labels.cancel + "'");
@@ -58,20 +83,86 @@ function confirmar() {
 }
 
 function alerta() {
-    //un alert
-    playA('sonidos/error.wav');
-    alertify.alert("<img src='../img/triste.jpg'><b>Ups! Te equivocaste</b> Segui intentando!", function () {
+    playA('../sonidos/error.wav');
+    alertify.alert("<img src='../img/triste.jpg'> <h1><b> &iexcl; ALGO NO ESTA BIEN ! <br> &iexcl; INTENTALO DE NUEVO ! </b></h1>", function() {
         //aqui introducimos lo que haremos tras cerrar la alerta.
     });
 }
 
-function comprobar() {
-    pintado = false;
-    $('.cambiarBorde2').removeClass("cambiarBorde2"); //la imagen seleccionada se despinta
+function enmarcar(event) {
+    selec = event.target;
+    if (pintado == false) {
+        selec.className += " cambiarBorde";
+        pintado = true;
+    } else {
+        $('.cambiarBorde').removeClass("cambiarBorde");
+        selec.className += " cambiarBorde";
+    }
+}
 
-    if (letraSelec == letraActual) {
-        confirmar();
+function comprobarR(s) {
+    if (checkTable('a') & checkTable('e')) {
+        confirmar(s);
     } else {
         alerta();
     }
+}
+
+/*FUNCION EXCLUSIVA DE LA ACTIVIDAD EXTRA*/
+
+function comprobarExtra(s,cantLetras,palabra){
+
+    if(palabra == 'auto'){
+        var letras = ['a','u','t','o'];
+    }
+    else{
+        var letras = ['a','r','o'];
+    }
+
+    var tabla = $('#a');
+    var items = tabla.children('tbody').children('tr').find('img');
+    var cont = 0;
+    var padre;
+    var hijo;
+    for (var i = 0; i < items.length; i++) {
+        if (items[i].dataset.letra != letras[i]){
+            hijo = document.createElement("div");
+            hijo.className+="item";
+            hijo.appendChild(items[i]);
+            padre = document.getElementById('pos-'+items[i].dataset.pos);
+            padre.appendChild(hijo);
+        }
+        if (items[i].dataset.letra == letras[i]){
+            cont++;
+        }
+    }
+
+    //Le devuelvo la propiedad arrastrable a cada imagen
+    $('.item').draggable({
+                helper: 'clone'
+                
+            });
+
+            $('.box-image').droppable({
+                accept: '.item',
+                hoverClass: 'hovering',
+                drop: function(ev, ui) {
+                    ui.draggable.detach();
+                    $(this).append(ui.draggable);
+
+                }
+            });
+
+    if(cont==cantLetras){
+        confirmar(s);
+    }
+    else{
+        alerta();
+    }
+
+
+}
+
+function cambiarValores(){
+    //permite cambiar las imagenes y las letras para jugar con otra 
 }

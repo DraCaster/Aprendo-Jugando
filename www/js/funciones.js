@@ -1,6 +1,4 @@
-
-var cantImgE = 0;
-var cantImgI = 0; //nivel 1 juego 3
+var ganador = new Audio("../sonidos/sonidoganador.ogg");
 
 function ingresar(val){
     setTimeout(function(){
@@ -13,3 +11,8 @@ function confirmSalida() {
                 window.location.href = '../index.html';
             }, 1300);
 }
+
+function ayuda(){
+     setTimeout(function() {
+        alertify.alert("<img src='../img/ayudaw.png'> ");}, 1300);
+      }

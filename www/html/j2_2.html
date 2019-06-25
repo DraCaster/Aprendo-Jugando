@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Actividad extra 2</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animacion.css">
+    <link rel="stylesheet" type="text/css" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/alertify.core.css" />
+    <link rel="stylesheet" href="../css/alertify.default.css" />
+</head>
+<body class="siguientes">
+
+	<div class="tituloJuego">
+            <h1 id="letra" class="cubos"><img src="../img/ayuda.png" id="imgsonido" class=" imgmonstruo" >LETRA &nbsp;A&nbsp;<img class="imgAyuda globoAyuda" src="../img/help.png" onclick="javascript: reproducirSonido('juego2extra.wav');"></h1>
+    </div>
+<h1>ARRASTRA LAS LETRAS PARA FORMAR LA PALABRA</h1>
+    <div>
+        <table class="tablas tablaj1 slideLeft">
+         <tr>
+            <td id="pos-0"><div class="item"><img src="../img/palabras/r.png" class="imgJuegosMini slideDown" onclick="javascript: reproducirSonido('r.wav'); enmarcar(event);" data-pos="0" data-letra="r"></div></td>
+            <td id="pos-1"><div class="item"><img src="../img/palabras/o.png" class="imgJuegosMini slideDown" onclick="javascript: reproducirSonido('o.wav'); enmarcar(event);" data-pos="1" data-letra="o"></div></td>
+            <td id="pos-2"><div class="item"><img src="../img/palabras/a.png" class="imgJuegosMini slideDown" onclick="javascript: reproducirSonido('a.wav'); enmarcar(event);" data-pos="2" data-letra="a"></div></td>
+            <td><div>
+                     <img src="../img/niveles/aro.png" class="imgJuegosG" onclick="reproducirSonido('aro.wav');">
+                 </div>
+            </td>
+         </tr>
+        </table>
+
+        <div class=" slideLeft">
+                <table id="a" class="tablas tablaj1">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div class="box-image"> </div>
+                        </td>
+                        <td>
+                            <div class="box-image"></div>
+                        </td>
+                        <td>
+                            <div class="box-image"></div>
+                        </td>
+                    </tr> </tbody>
+                </table>
+                <table class="tablas tablamenu">
+                	<tr>
+                		<td> <img src="../img/casa.png" class="botonmenuN" alt="boton salir" onclick="confirmSalida();"> </td>
+                        <td><img src="../img/check.png" class="botonmenuN" alt="boton comprobar" onclick="javascript: comprobarExtra('n1j3.html',3,'aro');"> </td>
+                
+                	</tr>
+                </table>
+                 
+         </div>
+
+
+    </div> <!--contenedor-->
+     
+	<script src="../js/funciones.js"></script>
+    <script src="../js/funcionesn1j2.js"></script>
+    <script type="text/javascript" src="../js/alertify.js"></script>
+    <script src="../js/jquery-3.1.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+                $('.item').draggable({
+                    helper: 'clone'
+                });
+
+                $('.box-image').droppable({
+                    accept: '.item',
+                    hoverClass: 'hovering',
+                    drop: function(ev, ui) {
+                        ui.draggable.detach();
+                        $(this).append(ui.draggable);
+                    }
+                });
+            </script>
+</body>
+</html>

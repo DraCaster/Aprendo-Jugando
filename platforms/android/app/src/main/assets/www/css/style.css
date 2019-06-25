@@ -18,10 +18,37 @@ font-family: PT_Sans-Narrow-Web-Bold;
 src: url(../fuente/PT_Sans-Narrow-Web-Bold.ttf);
 }
 
+@font-face {
+    font-family: cajitas;
+    src: url(../fuente/carteles.ttf);
+}
+
+@font-face {
+    font-family: cubo;
+    src: url(../fuente/toy.ttf);
+}
+
 h1,h2,p{
   text-align: center;
   font-family: PT_Sans-Narrow-Web-Bold;
   margin: 0 0 0 0;
+}
+
+.cubos {
+    font-family: cubo;
+    color: black;
+}
+
+.l1 {
+    color: #50d852;
+    font-size: 50px;
+    font-family: cajitas;
+}
+
+.l2 {
+    color: #46d8db;
+    font-size: 50px;
+    font-family: cajitas;
 }
 
 

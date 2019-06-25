@@ -1,35 +1,15 @@
 var pintado = false;
 letraSelec = null;
 letraActual = "m";
-
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
-}
-// Funcion para reproducir audio
-function playA(s) {
-    var src = getMediaURL(s);
-
-    var myMedia = new Media(src,
-        // success callback
-        function () { console.log("playA():Audio Success"); },
-        // error callback
-        function (err) { console.log("playA():Audio Error: " + err); }
-    );
-    myMedia.play();
-}
-// Funcion para obtener la url del archivo (debes hacer esto para cualquier otro sonido a reproducir)
-function getMediaURL(s) {
-    if (device.platform.toLowerCase() === "android") {
-        return "/android_asset/www/" + s;
-    }
-    return s;
-}
+var sndOK = new Audio("../sonidos/ganaste.wav");
+var sndNO = new Audio("../sonidos/error.wav");
 
 function show() {
-    $('#flopi').click(function () {
+    $('#flopi').click(function() {
         ayuda = $("#ayuda").removeClass();
     });
 }
+
 
 function enmarcar(event) {
     selec = event.target;
@@ -50,11 +30,11 @@ function enmarcar(event) {
 /*Cartelito*/
 
 function confirmar() {
-    playA('sonidos/ganaste.wav');
-    alertify.confirm("<img src='../img/feliz.jpg'> <p>Buen trabajo! <b>Acertaste!</b> <br> Seguimos jugando?", function (e) {
+    sndOK.play();
+    alertify.confirm("<img src='../img/feliz.jpg'> <h1><b>&iexcl; EXCELENTE ! <br>&iexcl; SIGAMOS JUGANDO ! </b></h1>", function(e) {
         if (e) {
             alertify.success("ELEGISTE '" + alertify.labels.ok + "'");
-            setTimeout(function () {
+            setTimeout(function() {
                 window.location.href = '../html/felicidades.html'; //Pasa al siguiente juego
             }, 1300);
         } else {
@@ -67,8 +47,8 @@ function confirmar() {
 
 function alerta() {
     //un alert
-    playA('sonidos/error.wav');
-    alertify.alert("<img src='../img/triste.jpg'><b>Ups! Te equivocaste</b> Segui intentando!", function () {
+    sndNO.play();
+    alertify.alert("<img src='../img/triste.jpg'> <h1><b> &iexcl; TE EQUIVOCASTE! <br> &iexcl; INTENTALO DE NUEVO ! </b></h1>", function() {
         //aqui introducimos lo que haremos tras cerrar la alerta.
     });
 }

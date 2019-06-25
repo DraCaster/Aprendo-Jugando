@@ -12,60 +12,49 @@
 </head>
 
 <body class="siguientes">
-    <div id="game">
+
+ <!-- PRESENTACION <-->
+    <div id="presentation">
+        <div class="center">
+            <h1 class="cubos">CARGANDO</h1>
+            <h1 class="cubos">ACTIVIDAD ...</h1>
+            <img class="slideDown imgmonstruo" src="../img/tini.png">
+        </div>
+    </div>
+
+    <div id="game" style="display: none;">
         <!-- ENCABEZADO -->
         <div class="tituloJuego">
-            <h1 id="letra"><img src="../img/ayuda.png" id="imgsonido" class=" imgmonstruo" onclick="window.location.href ='ayudaj1.html'">LETRA <b class="tam">&nbsp; U</b></h1>
+            <h1 id="letra" class="cubos"><img src="../img/ayuda.png" id="imgsonido" class=" imgmonstruo" onclick="javascript: ingresar('ayudaj1.html');"> LETRA<b>&nbsp; U</b> &nbsp; &nbsp; &nbsp; &nbsp;<img class="imgAyuda globoAyuda" src="../img/help.png" onclick="javascript: reproducirSonido('juego1.wav');"></h1>
         </div>
         <div>
             <div>
                 <br>
-                <h1>ELIGE LA IMAGEN QUE EMPIECE CON U.</h1>
+                <h1>ESTOY PENSANDO EN ALGO QUE EMPIEZA CON LA LETRA U.</h1>
                 <br>
-            </div>
-            <div class="normal">
+                <!-- JUEGO: corregir las imagenes , son seis  -->
                 <table class="tablas tablaj1">
                     <tr>
-                        <td><img id="u" class="imgJuegosG slideDown" data-valor="uno" onclick="javascript: playA('sonidos/uno.wav'); enmarcar(event);"
-                                src="../img/niveles/uno.png" alt="imagen numero uno"></td>
-                        <td><img id="e" class="imgJuegosG slideDown" data-valor="espada" onclick="javascript: playA('sonidos/espada.wav'); enmarcar(event);"
-                                src="../img/niveles/espada.png" alt="imagen espada"></td>
-                        <td><img id="o" class="imgJuegosG slideUp" data-valor="oso" onclick="javascript: playA('sonidos/oso.wav'); enmarcar(event);"
-                                src="../img/niveles/oso.png" alt="imagen oso"></td>
-                        <td> <img id="a" class="imgJuegosG slideUp" data-valor="arbol" onclick="javascript: playA('sonidos/arbol.wav'); enmarcar(event);"
-                                src="../img/niveles/arbol.png" alt="imagen arbol"></td>
-                    </tr>
-                </table>
-            </div>
-
-            <!-- Responsive -->
-            <div class="responsive">
-                <table class="tablas tablaj1">
-                    <tr>
-                        <td><img id="u" class="imgJuegosG slideDown" data-valor="uno" onclick="javascript: playA('sonidos/uno.wav'); enmarcar(event);"
-                                src="../img/niveles/uno.png" alt="imagen numero uno"></td>
-                        <td><img id="e" class="imgJuegosG slideDown" data-valor="espada" onclick="javascript: playA('sonidos/espada.wav'); enmarcar(event);"
-                                src="../img/niveles/espada.png" alt="imagen espada"></td>
-                    </tr>
-                    <tr>
-                        <td><img id="o" class="imgJuegosG slideUp" data-valor="oso" onclick="javascript: playA('sonidos/oso.wav'); enmarcar(event);"
-                                src="../img/niveles/oso.png" alt="imagen oso"></td>
-                        <td> <img id="a" class="imgJuegosG slideUp" data-valor="arbol" onclick="javascript: playA('sonidos/arbol.wav'); enmarcar(event);"
-                                src="../img/niveles/arbol.png" alt="imagen arbol"></td>
+                        <td><img id="u" class="imgJuegosG slideDown" data-valor="uno" onclick="javascript: playA('uno.wav'); enmarcar(event);" src="../img/niveles/uno.png" alt="imagen numero uno"></td>
+                        <td><img id="e" class="imgJuegosG slideDown" data-valor="espada" onclick="javascript: playA('espada.wav'); enmarcar(event)" src="../img/niveles/espada.png" alt="imagen espada"></td>
+                        <td><img id="o" class="imgJuegosG slideUp" data-valor="oso" onclick="javascript: playA('oso.wav'); enmarcar(event)" src="../img/niveles/oso.png" alt="imagen oso"></td>
+                        <td> <img id="e2" class="imgJuegosG slideUp" data-valor="aro" onclick="javascript: playA('aro.wav'); enmarcar(event)" src="../img/niveles/aro.png" alt="imagen ola"></td>
+                        <td><img id="a1" class="imgJuegosG slideUp" data-valor="ola" src="../img/niveles/ola.png" onclick="javascript: playA('ola.wav'); enmarcar(event)"></td>
+                        <td><img src="../img/niveles/empanadas.png" id="e1" class="imgJuegosG slideUp" onclick="javascript: playA('empanadas.wav'); enmarcar(event)"></td>
+                        <td><img src="../img/niveles/ala.png" class="imgJuegosG slideUp" data-valor="ala" id="a3" onclick="playA('ala.wav'); enmarcar(event)"></td>
                     </tr>
                 </table>
             </div>
             <br>
             <div>
                 <table class="tablas tablamenu">
-                    <td> <img src="../img/casa.png" class="botonmenuN" alt="boton salir" onclick="javascript: playA('sonidos/selec.wav'); confirmSalida();">
-                    </td>
-                    <td><img src="../img/check.png" class="botonmenuN" alt="boton comprobar" onclick="javascript: comprobar();">
-                    </td>
+                    <td> <img src="../img/casa.png" class="botonmenuN" alt="boton salir" onclick=" playA('sonidos/selec.wav'); confirmSalida();"> </td>
+                    <td><img src="../img/check.png" class="botonmenuN" alt="boton comprobar" onclick="javascript: comprobar('j1_1');"> </td>
                 </table>
             </div>
-
         </div>
+
+        <!--contenedor-->
     </div>
     <script src="../cordova.js"></script>
     <script type="text/javascript">
@@ -96,6 +85,16 @@
     <script type="text/javascript" src="../js/alertify.js"></script>
     <script src="../js/funciones.js"></script>
     <script src="../js/funcionesn1j1.js"></script>
+    <script>
+        //Funciones al iniciar el juego
+        window.onload = function() {
+
+            setTimeout(function() {
+                $('#presentation').css("display", "none");
+                $('#game').css("display", "block");
+            }, 999);
+        };
+    </script>
 </body>
 
 </html>
